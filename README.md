@@ -2,7 +2,7 @@
 
 ![BIGFOOT Logo](icons/icon128.png)
 
-**BIGFOOT** é uma extensão para o Google Chrome que permite compartilhar sua internet ociosa e ganhar recompensas na rede DAG Nano. Com uma interface simples e funcionalidade intuitiva, você pode contribuir com largura de banda não utilizada e ser recompensado por isso.
+**BIGFOOT** é uma extensão para o navegador que permite compartilhar sua internet ociosa e ganhar recompensas na rede DAG Nano. Com uma interface simples e funcionalidade intuitiva, você pode contribuir com largura de banda não utilizada e ser recompensado por isso.
 
 ## Funcionalidades
 
@@ -14,7 +14,7 @@
 ## Instalação
 
 ### Pré-requisitos
-- Google Chrome (versão recente).
+- Google Chrome, Brave.
 - Arquivos da extensão disponíveis neste repositório.
 
 ### Passos
