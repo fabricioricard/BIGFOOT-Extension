@@ -41,11 +41,17 @@
 - **Recompensas**: (Em breve) Veja suas recompensas acumuladas no popup.
 
 ## Estrutura do Projeto
+
 bigfoot-extension/
+
 ├── background.js       # Script principal em segundo plano
+
 ├── manifest.json       # Configuração da extensão
+
 ├── popup.html          # Interface do popup
+
 ├── popup.js            # Lógica do popup
+
 └── icons/              # Ícones da extensão
     ├── icon16.png
     ├── icon32.png
