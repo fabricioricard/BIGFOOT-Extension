@@ -14,7 +14,6 @@
 ## Instalação
 
 ### Pré-requisitos
-- Google Chrome, Brave.
 - Arquivos da extensão disponíveis neste repositório.
 
 ### Passos
