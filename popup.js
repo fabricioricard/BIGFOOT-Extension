@@ -1,38 +1,34 @@
-// Função para atualizar o estado do popup
-function updatePopup(isSharing) {
-    const statusElement = document.getElementById("status");
-    const buttonElement = document.getElementById("toggleButton");
-    if (isSharing) {
-        statusElement.textContent = "Compartilhamento Ativo";
-        buttonElement.textContent = "Parar Compartilhamento";
-        buttonElement.classList.add("stop");
-    } else {
-        statusElement.textContent = "Compartilhamento Parado";
-        buttonElement.textContent = "Iniciar Compartilhamento";
-        buttonElement.classList.remove("stop");
-    }
-}
-
-// Verifica o estado inicial ao carregar o popup
-document.addEventListener("DOMContentLoaded", () => {
-    chrome.runtime.sendMessage({ action: "getStatus" }, (response) => {
-        updatePopup(response.isSharing);
+document.getElementById('wallet-input').addEventListener('change', (e) => {
+    chrome.runtime.sendMessage({
+        action: "setWalletAddress",
+        address: e.target.value
+    }, (response) => {
+        if (response.success) {
+            console.log("Carteira configurada com sucesso!");
+            updateStatus(); // Atualiza imediatamente após configurar
+        }
     });
-
-    // Listener para o botão de alternar compartilhamento
-    document.getElementById("toggleButton").addEventListener("click", () => {
-        chrome.runtime.sendMessage({ action: "toggleSharing" }, (response) => {
-            updatePopup(response.isSharing);
-        });
-    });
-
-    // Opcional: Atualiza recompensas (placeholder)
-    updateRewards();
 });
 
-// Função para atualizar recompensas
-function updateRewards() {
-    const rewardsElement = document.getElementById("rewards");
-    // Substitua por uma chamada real à API ou lógica de recompensas
-    rewardsElement.textContent = "Recompensas: 0 XNO (em breve)";
+document.getElementById('toggle-btn').addEventListener('click', () => {
+    chrome.runtime.sendMessage({ action: "toggleSharing" }, (response) => {
+        if (response.error) {
+            console.error(response.error);
+        } else {
+            updateStatus(); // Atualiza após toggle
+        }
+    });
+});
+
+function updateStatus() {
+    chrome.runtime.sendMessage({ action: "getStatus" }, (response) => {
+        document.getElementById('shared-gb').textContent = response.totalSharedGB.toFixed(2);
+        document.getElementById('nano-amount').textContent = response.nanoAmount.toFixed(4);
+        document.getElementById('wallet-display').textContent = response.nanoWalletAddress || "Nao configurado";
+        document.getElementById('toggle-btn').textContent = response.isSharing ? "Parar" : "Iniciar";
+        document.getElementById('wallet-input').value = response.nanoWalletAddress || ""; // Mostra o valor salvo
+    });
 }
+
+setInterval(updateStatus, 1000);
+updateStatus(); // Chama ao carregar
