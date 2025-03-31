@@ -1,108 +1,115 @@
-// Listener para quando a extensão é instalada ou atualizada
-chrome.runtime.onInstalled.addListener((details) => {
-    console.log("BIGFOOT Extension instalada ou atualizada.", details.reason);
-    // Pode ser útil inicializar configurações ou exibir uma página de boas-vindas
-    if (details.reason === "install") {
-        chrome.runtime.openOptionsPage?.(); // Abre página de opções, se existir
-    }
+let isSharing = false;
+let sharingStartTime = null;
+let totalSharedGB = 0;
+let nanoWalletAddress = '';
+const NANO_PER_GB = 0.01;
+const TRAFFMONETIZER_TOKEN = "FE9sf+b8WxdiFd5ZOYgcdJmFSivw6UWM4/wyWVk91PM=";
+
+let intervalId = null; // Para controlar o setInterval
+
+// Carregar o endereço da carteira do armazenamento ao iniciar
+chrome.runtime.onStartup.addListener(() => {
+    chrome.storage.local.get(['nanoWalletAddress'], (result) => {
+        if (result.nanoWalletAddress) {
+            nanoWalletAddress = result.nanoWalletAddress;
+            console.log("Carteira carregada do armazenamento:", nanoWalletAddress);
+        }
+    });
 });
 
-// Estado global para rastrear o compartilhamento
-let isSharing = false;
-
-// Função para iniciar o compartilhamento de internet
 async function startSharing() {
-    if (isSharing) {
-        console.log("Compartilhamento já está ativo.");
-        return;
-    }
-
+    console.log("Iniciando compartilhamento...");
     try {
-        console.log("Iniciando compartilhamento de internet...");
-        // Simulação de conexão com um servidor proxy (substitua pela lógica real)
-        await connectToProxyServer();
-        isSharing = true;
-        updateBadge("ON", "green");
-        console.log("Compartilhamento de internet ativo.");
+        if (!nanoWalletAddress) {
+            throw new Error("Endereço da carteira NANO não configurado");
+        }
+        if (!isSharing) { // Evita múltiplos intervalos
+            isSharing = true;
+            sharingStartTime = Date.now();
+            chrome.action.setBadgeText({ text: "ON" });
+            chrome.action.setBadgeBackgroundColor({ color: "green" });
+            console.log("Compartilhamento iniciado com sucesso! isSharing:", isSharing);
+            intervalId = setInterval(calculateSharedData, 60000); // Armazena o ID do intervalo
+        }
     } catch (error) {
         console.error("Erro ao iniciar compartilhamento:", error);
         isSharing = false;
-        updateBadge("OFF", "red");
+        sharingStartTime = null;
+        chrome.action.setBadgeText({ text: "OFF" });
+        chrome.action.setBadgeBackgroundColor({ color: "red" });
+        throw error;
     }
 }
 
-// Função para parar o compartilhamento de internet
 async function stopSharing() {
-    if (!isSharing) {
-        console.log("Compartilhamento já está parado.");
-        return;
-    }
-
+    console.log("Parando compartilhamento...");
     try {
-        console.log("Parando compartilhamento de internet...");
-        // Simulação de desconexão do servidor proxy (substitua pela lógica real)
-        await disconnectFromProxyServer();
-        isSharing = false;
-        updateBadge("OFF", "gray");
-        console.log("Compartilhamento de internet parado.");
+        if (isSharing) { // Só para se estiver ativo
+            isSharing = false;
+            sharingStartTime = null;
+            if (intervalId) {
+                clearInterval(intervalId); // Para o intervalo
+                intervalId = null;
+            }
+            chrome.action.setBadgeText({ text: "OFF" });
+            chrome.action.setBadgeBackgroundColor({ color: "gray" });
+            console.log("Compartilhamento parado com sucesso! isSharing:", isSharing);
+        }
     } catch (error) {
         console.error("Erro ao parar compartilhamento:", error);
-        updateBadge("ERR", "red");
+        chrome.action.setBadgeText({ text: "ERR" });
+        chrome.action.setBadgeBackgroundColor({ color: "red" });
+        throw error;
     }
 }
 
-// Função auxiliar para conectar ao servidor proxy (placeholder)
-async function connectToProxyServer() {
-    // Adicione aqui a lógica real, como uma chamada API ou WebSocket
-    return new Promise((resolve) => setTimeout(resolve, 1000)); // Simulação
+async function calculateSharedData() {
+    if (!isSharing || !sharingStartTime) {
+        console.log("calculateSharedData: Compartilhamento não está ativo, pulando...");
+        return;
+    }
+    console.log("Calculando dados compartilhados (simulado)...");
+    totalSharedGB += 0.1; // Simulação: 0.1 GB por minuto
+    console.log("Dados compartilhados atualizados - totalSharedGB:", totalSharedGB);
 }
 
-// Função auxiliar para desconectar do servidor proxy (placeholder)
-async function disconnectFromProxyServer() {
-    // Adicione aqui a lógica real
-    return new Promise((resolve) => setTimeout(resolve, 1000)); // Simulação
-}
-
-// Função para atualizar o badge da extensão
-function updateBadge(text, color) {
-    chrome.action.setBadgeText({ text });
-    chrome.action.setBadgeBackgroundColor({ color });
-}
-
-// Listener para o clique no ícone da extensão
-chrome.action.onClicked.addListener(async (tab) => {
-    if (!isSharing) {
-        await startSharing();
-    } else {
-        await stopSharing();
-    }
-});
-
-// Listener para atalhos de teclado, se configurados no manifest.json
-chrome.commands?.onCommand.addListener((command) => {
-    if (command === "toggle-sharing") {
-        isSharing ? stopSharing() : startSharing();
-    }
-});
-
-// Opcional: Verifica periodicamente o estado da conexão (exemplo)
-setInterval(() => {
-    if (isSharing) {
-        console.log("Verificando estado do compartilhamento...");
-        // Adicione lógica para verificar a conexão com o proxy, se necessário
-    }
-}, 60000); // A cada 60 segundos
-
-// Listener para mensagens do popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    console.log("Mensagem recebida no background:", message);
+    
     if (message.action === "getStatus") {
-        sendResponse({ isSharing });
-    } else if (message.action === "toggleSharing") {
+        const timeActive = isSharing ? (Date.now() - sharingStartTime) / 1000 : 0;
+        const nanoAmount = totalSharedGB * NANO_PER_GB;
+        sendResponse({ 
+            isSharing, 
+            totalSharedGB, 
+            nanoAmount, 
+            timeActive,
+            nanoWalletAddress 
+        });
+    } 
+    else if (message.action === "toggleSharing") {
         if (isSharing) {
-            stopSharing().then(() => sendResponse({ isSharing: false }));
+            stopSharing().then(() => {
+                sendResponse({ isSharing: false, totalSharedGB });
+            }).catch((error) => {
+                sendResponse({ isSharing: true, totalSharedGB, error: "Falha ao parar" });
+            });
         } else {
-            startSharing().then(() => sendResponse({ isSharing: true }));
+            startSharing().then(() => {
+                sendResponse({ isSharing: true, totalSharedGB });
+            }).catch((error) => {
+                sendResponse({ isSharing: false, totalSharedGB, error: "Falha ao iniciar" });
+            });
         }
-        return true; // Indica que a resposta é assíncrona
+        return true;
+    } 
+    else if (message.action === "setWalletAddress") {
+        nanoWalletAddress = message.address;
+        // Salva no armazenamento persistente
+        chrome.storage.local.set({ nanoWalletAddress: message.address }, () => {
+            console.log("Endereço da carteira NANO salvo:", nanoWalletAddress);
+            sendResponse({ success: true });
+        });
+        return true; // Resposta assíncrona
     }
 });
