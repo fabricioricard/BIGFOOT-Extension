@@ -1,43 +1,25 @@
 {
     "manifest_version": 3,
-    "name": "BIGFOOT - Internet Sharing",
-    "version": "1.0.0",
-    "description": "Compartilhe sua internet ociosa e ganhe recompensas em Nano.",
-    "permissions": [
-        "activeTab",
-        "storage",
-        "commands"
-    ],
-    "optional_permissions": [
-        "proxy",
-        "webRequest",
-        "webRequestBlocking"
-    ],
+    "name": "BIGFOOT",
+    "version": "1.0",
+    "description": "Compartilhe sua internet ociosa e ganhe recompensas em Nano!",
+    "action": {
+        "default_popup": "popup.html"
+    },
     "background": {
         "service_worker": "background.js"
     },
-    "action": {
-        "default_icon": {
-            "16": "icons/icon16.png",
-            "32": "icons/icon32.png",
-            "48": "icons/icon48.png",
-            "128": "icons/icon128.png"
-        },
-        "default_title": "BIGFOOT - Toggle Sharing",
-        "default_popup": "popup.html"
-    },
-    "commands": {
-        "toggle-sharing": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+S",
-                "mac": "Command+Shift+S"
-            },
-            "description": "Alternar o compartilhamento de internet"
-        }
-    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "action",
+        "notifications"
+    ],
+    "host_permissions": [
+        "https://api.ipify.org/*"
+    ],
     "icons": {
         "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
     }
