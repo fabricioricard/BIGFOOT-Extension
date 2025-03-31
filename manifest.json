@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "BIGFOOT",
+    "name": "BIGFOOT - Internet Sharing",
     "version": "1.0",
     "description": "Compartilhe sua internet ociosa e ganhe recompensas em Nano!",
     "action": {
