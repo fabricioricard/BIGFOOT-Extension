@@ -1,4 +1,4 @@
-# BIGFOOT - Internet Sharing Extension
+# BIGFOOT Connect - Extension
 
 ![BIGFOOT Logo](icons/icon128.png)
 
@@ -22,8 +22,8 @@
      ```
      git clone https://github.com/seu-usuario/bigfoot-extension.git
      ```
-2. **Carregue a Extensão no Chrome**:
-   - Abra o Chrome e vá até `chrome://extensions/`.
+2. **Carregue a Extensão no Navegador**:
+   - Abra por exemplo o Chrome e vá até `chrome://extensions/`.
    - Ative o "Modo Desenvolvedor" no canto superior direito.
    - Clique em "Carregar sem compactação" e selecione a pasta `bigfoot-extension`.
 
