@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "BIGFOOT - Internet Sharing",
+    "name": "BIGFOOT Connect",
     "version": "1.0",
     "description": "Compartilhe sua internet ociosa e ganhe recompensas em Nano!",
     "action": {
@@ -13,14 +13,24 @@
         "storage",
         "tabs",
         "action",
-        "notifications"
+        "notifications",
+        "webRequest",
+        "webRequestBlocking"
     ],
     "host_permissions": [
-        "https://api.ipify.org/*"
+        "https://api.ipify.org/*",
+        "https://app.traffmonetizer.com/*"
     ],
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ]
 }
+
