@@ -1,4 +1,4 @@
-# BIGFOOT Connect - Extensão para Navegador 🇧🇷 / # BIGFOOT Connect - Browser Extension 🇺🇸
+# BIGFOOT Connect - Extensão para Navegador 🇧🇷 / BIGFOOT Connect - Browser Extension 🇺🇸
 
 ![BIGFOOT Logo](icons/icon128.png)
 
