@@ -10,17 +10,17 @@
 
 ## 🇧🇷 Funcionalidades | 🇺🇸 Features
 
-- **🛠️ Compartilhamento de Internet / Internet Sharing**: Ative ou desative o compartilhamento com um clique.
-- **🌟 Recompensas / Rewards**: Ganhe tokens DAG Nano pelo uso da sua banda ociosa (em desenvolvimento).
-- **🔍 Interface Amigável / User-Friendly Interface**: Controle tudo diretamente pelo popup da extensão.
-- **⏳ Monitoramento / Monitoring**: Veja o status do compartilhamento em tempo real.
+- **🛠️ Compartilhamento de Internet / Internet Sharing**: Ative ou desative o compartilhamento com um clique. / Activate or disable sharing with one click.
+- **🌟 Recompensas / Rewards**: Ganhe tokens DAG Nano pelo uso da sua banda ociosa (em desenvolvimento). / Earn DAG Nano tokens for the use of your idle band (under development).
+- **🔍 Interface Amigável / User-Friendly Interface**: Controle tudo diretamente pelo popup da extensão. / Control everything directly by the extension popup.
+- **⏳ Monitoramento / Monitoring**: Veja o status do compartilhamento em tempo real. / See the status of sharing in real time.
 
 ---
 
 ## 🇧🇷 Instalação | 🇺🇸 Installation
 
 ### 🇧🇷 Pré-requisitos | 🇺🇸 Prerequisites
-- Arquivos da extensão disponíveis neste repositório.
+- Arquivos da extensão disponíveis neste repositório. / Extension files available in this repository.
 
 ### 📝 Passos | 🌟 Steps
 1. **Clone ou Baixe o Repositório / Clone or Download the Repository**
@@ -29,22 +29,22 @@
    ```
 2. **Carregue a Extensão no Navegador / Load the Extension in the Browser**
    - Chrome: Acesse `chrome://extensions/`.
-   - Ative o "Modo Desenvolvedor".
-   - Clique em "Carregar sem compactação" e selecione a pasta `bigfoot-extension`.
+   - Ative o "Modo Desenvolvedor". / Activate the "Developer Mode".
+   - Clique em "Carregar sem compactação" e selecione a pasta `bigfoot-extension`. / Click "Load without compaction" and select the `bigfoot-extension` folder.
 
 3. **Verifique os Ícones / Check the Icons**
-   - Certifique-se de que a pasta `icons/` contém `icon16.png`, `icon32.png`, `icon48.png` e `icon128.png`.
+   - Certifique-se de que a pasta `icons/` contém `icon16.png`, `icon32.png`, `icon48.png` e `icon128.png`. / Make sure the `icons/` contains `icon16.png`,` icon32.png`, `icon48.png` and` icon128.png`.
 
 4. **Teste / Test**
-   - Clique no ícone da extensão na barra do navegador para abrir o popup e ativar/desativar o compartilhamento.
+   - Clique no ícone da extensão na barra do navegador para abrir o popup e ativar/desativar o compartilhamento. / Click the extension icon on the browser bar to open the popup and activate/disable sharing.
 
 ---
 
 ## 🇧🇷 Uso | 🇺🇸 Use
 
-- **Ativar/Desativar Compartilhamento / Enable/Disable Sharing**: Clique no ícone da extensão e use o botão no popup.
-- **Atalho de Teclado / Keyboard Shortcut**: Pressione `Ctrl+Shift+S` (`Command+Shift+S` no Mac) para alternar rapidamente.
-- **Recompensas / Rewards**: (Em breve) Veja suas recompensas acumuladas no popup.
+- **Ativar/Desativar Compartilhamento / Enable/Disable Sharing**: Clique no ícone da extensão e use o botão no popup. / Click on the extension icon and use the button on the popup.
+- **Atalho de Teclado / Keyboard Shortcut**: Pressione `Ctrl+Shift+S` (`Command+Shift+S` no Mac) para alternar rapidamente. / Press `Ctrl+Shift+S` (`Command+Shift+S` in Mac) to switch quickly.
+- **Recompensas / Rewards**: (Em breve) Veja suas recompensas acumuladas no popup. / See your accumulated rewards in the popup.
 
 ---
 
