@@ -86,7 +86,7 @@ Quer ajudar a melhorar o BIGFOOT? 🌟 / Want to help improve BIGFOOT? 🌟
 
 ---
 
-## 🛠️ Tarefas Pendentes | 🌟 Pending Tasks
+## 🛠️ 🇧🇷 Tarefas Pendentes | 🌟 🇺🇸 Pending Tasks
 
 - 🔗 Implementar conexão real com servidor proxy / Implement real connection with proxy server.
 - 🌐 Integrar API para recompensas na DAG Nano / Integrate API for rewards into DAG Nano.
@@ -94,14 +94,14 @@ Quer ajudar a melhorar o BIGFOOT? 🌟 / Want to help improve BIGFOOT? 🌟
 
 ---
 
-## 📝 Licença | 🌟 License
+## 📝 🇧🇷 Licença | 🌟 🇺🇸 License
 
 Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.  
 This project is licensed under the MIT license - see the [LICENSE](LICENSE) file for more details.
 
 ---
 
-## 📧 Contato | 🌟 Contact
+## 📧 🇧🇷 Contato | 🌟 🇺🇸 Contact
 
 Dúvidas ou sugestões? Abra uma issue ou entre em contato comigo:  
 Questions or suggestions? Open an issue or contact me:
