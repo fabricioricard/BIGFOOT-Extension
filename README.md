@@ -52,7 +52,7 @@
 1. **Clone or Download the Repository**:
    - Click on "Code" and select "Download ZIP" or use the command:
      ```
-     git clone https://github.com/seu-usuario/bigfoot-extension.git 🇧🇷 / git clone https://github.com/your-username/bigfoot-extension.git 🇺🇸
+     git clone https://github.com/your-username/bigfoot-extension.git
      ```
 2. **Load the Extension in the Browser**:
    - For example, open Chrome and go to `chrome://extensions/`.
