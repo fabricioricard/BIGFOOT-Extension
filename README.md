@@ -2,18 +2,21 @@
 
 ![BIGFOOT Logo](icons/icon128.png)
 
-**BIGFOOT** (Bandwidth Internet Gateway For Optimal Online Transactions) é uma extensão de navegador que permite compartilhar sua internet ociosa e ganhar recompensas na rede DAG Nano. Com uma interface simples e funcionalidade intuitiva, você pode contribuir com largura de banda não utilizada e ser recompensado por isso. 🇧🇷  
+BIGFOOT (Bandwidth Internet Gateway For Optimal Online Transactions) é uma extensão de navegador que permite compartilhar sua internet ociosa e ganhar recompensas utilizando a rede descentralizada NKN. Com uma interface simples e funcionalidade intuitiva, você pode contribuir com largura de banda não utilizada e ser recompensado por isso. 🇧🇷
 
-**BIGFOOT** (Bandwidth Internet Gateway For Optimal Online Transactions) is a browser extension that allows you to share your idle internet and earn rewards on the DAG Nano network. With a simple interface and intuitive functionality, you can contribute unused bandwidth and get rewarded for it. 🇺🇸  
+BIGFOOT (Bandwidth Internet Gateway For Optimal Online Transactions) is a browser extension that allows you to share your idle internet and earn rewards using the decentralized NKN network. With a simple interface and intuitive functionality, you can contribute unused bandwidth and get rewarded for it. 🇺🇸
 
 ---
 
 ## 🇧🇷 Funcionalidades | 🇺🇸 Features
 
-- **🛠️ Compartilhamento de Internet / Internet Sharing**: Ative ou desative o compartilhamento com um clique. / Activate or disable sharing with one click.
-- **🌟 Recompensas / Rewards**: Ganhe tokens DAG Nano pelo uso da sua banda ociosa (em desenvolvimento). / Earn DAG Nano tokens for the use of your idle band (under development).
-- **🔍 Interface Amigável / User-Friendly Interface**: Controle tudo diretamente pelo popup da extensão. / Control everything directly by the extension popup.
-- **⏳ Monitoramento / Monitoring**: Veja o status do compartilhamento em tempo real. / See the status of sharing in real time.
+🛠️ Compartilhamento de Internet / Internet Sharing: Ative ou desative o compartilhamento com um clique. / Activate or disable sharing with one click.
+
+🌟 Recompensas / Rewards: Ganhe tokens NKN pelo uso da sua banda ociosa. / Earn NKN tokens for the use of your idle bandwidth.
+
+🔍 Interface Amigável / User-Friendly Interface: Controle tudo diretamente pelo popup da extensão. / Control everything directly by the extension popup.
+
+⏳ Monitoramento / Monitoring: Veja o status do compartilhamento em tempo real. / See the status of sharing in real time.
 
 ---
 
@@ -88,9 +91,11 @@ Quer ajudar a melhorar o BIGFOOT? 🌟 / Want to help improve BIGFOOT? 🌟
 
 ## 🛠️ 🇧🇷 Tarefas Pendentes | 🌟 🇺🇸 Pending Tasks
 
-- 🔗 Implementar conexão real com servidor proxy / Implement real connection with proxy server.
-- 🌐 Integrar API para recompensas na DAG Nano / Integrate API for rewards into DAG Nano.
-- 🔧 Adicionar página de opções para configurações avançadas / Add options page for advanced settings.
+🔗 Implementar conexão real com node da NKN / Implement real connection with NKN node.
+
+🌐 Integrar API de recompensas em NKN / Integrate reward API using NKN.
+
+🔧 Adicionar página de opções para configurações avançadas / Add options page for advanced settings.
 
 ---
 
